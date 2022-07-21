@@ -42,6 +42,9 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         export PYTHONPATH="$GITHUB_WORKSPACE/build/tools/torch-mlir/python_packages/torch_mlir"
+        
+        ls $GITHUB_WORKSPACE/build/tools/torch-mlir/python_packages/torch_mlir
+        
         # sudo apt-get install gdb
         # gdb --batch -q python -ex 'run -m e2e_testing.torchscript.main --config=lazy_tensor_core -v -s -f ElementwiseDivRoundingModeFloorModule_basic' -ex 'back'
         python3 examples/ltc_backend_simple.py
