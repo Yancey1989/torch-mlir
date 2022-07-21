@@ -26,7 +26,7 @@ jobs:
         mkdir build
         cd build
         cmake $GITHUB_WORKSPACE/externals/llvm-project/llvm -GNinja \
-          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_BUILD_TYPE=Asan \
           -DCMAKE_LINKER=lld \
           -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
           -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
@@ -38,7 +38,6 @@ jobs:
           -DLLVM_EXTERNAL_TORCH_MLIR_DIALECTS_SOURCE_DIR="${GITHUB_WORKSPACE}/external/llvm-external-projects/torch-mlir-dialects" \
           -DMLIR_ENABLE_BINDINGS_PYTHON=ON \
           -DLLVM_TARGETS_TO_BUILD=host
-        ninja check-torch-mlir-all
     - name: Lazy Tensor Core - TorchScript end-to-end tests
       run: |
         cd $GITHUB_WORKSPACE
