@@ -72,7 +72,6 @@ jobs:
           -DLLVM_ENABLE_PROJECTS=mlir \
           -DMLIR_ENABLE_BINDINGS_PYTHON=ON \
           -DLLVM_TARGETS_TO_BUILD=host \
-          -DLLVM_USE_SANITIZER=Address \
           externals/llvm-project/llvm
         ninja -Cllvm-build
 
